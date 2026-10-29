@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Player de Músicas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Player de Músicas</h1>
+    <p class="sub">Músicas de acervo aberto (Internet Archive)</p>
+  </header>
+
+  <main>
+    <form id="search-form">
+      <input id="q" type="search" placeholder="Buscar música, artista ou álbum" required>
+      <button type="submit">Buscar</button>
+    </form>
+
+    <p id="status" role="status"></p>
+
+    <section id="results-section" hidden>
+      <h2>Resultados</h2>
+      <ul id="results"></ul>
+    </section>
+
+    <section id="album-section" hidden>
+      <h2 id="album-title"></h2>
+      <p id="album-meta"></p>
+      <ul id="tracks"></ul>
+    </section>
+  </main>
+
+  <footer id="player">
+    <div id="now">Nada tocando</div>
+    <audio id="audio" controls></audio>
+    <div class="controls">
+      <button id="prev" type="button">Anterior</button>
+      <button id="next" type="button">Próxima</button>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #666666;
+  --line: #d8d8d8;
+  --accent: #1a56db;
+  --row: #f4f4f4;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161616;
+    --fg: #ececec;
+    --muted: #9a9a9a;
+    --line: #333333;
+    --accent: #6ea0ff;
+    --row: #202020;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, sans-serif;
+  line-height: 1.4;
+  padding: 16px 16px 190px;
+}
+
+header, main { max-width: 760px; margin: 0 auto; }
+h1 { margin: 0; font-size: 1.5rem; }
+h2 { font-size: 1.1rem; margin: 24px 0 8px; }
+.sub { margin: 4px 0 16px; color: var(--muted); }
+
+form { display: flex; gap: 8px; }
+input[type="search"] {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  font: inherit;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+}
+button {
+  padding: 6px 10px;
+  font: inherit;
+  border: 1px solid var(--line);
+  background: var(--row);
+  color: var(--fg);
+  cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+button:disabled { opacity: 0.6; cursor: wait; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+li { padding: 8px; border-bottom: 1px solid var(--line); }
+li.playing { background: var(--row); border-left: 3px solid var(--accent); }
+
+.item-title { font-weight: 600; overflow-wrap: anywhere; }
+.item-sub { color: var(--muted); font-size: 0.9rem; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+#status { color: var(--muted); min-height: 1.4em; margin: 12px 0 0; }
+#status.error { color: #c0392b; }
+
+footer#player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 16px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+#now { margin-bottom: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+audio { width: 100%; }
+.controls { display: flex; gap: 8px; margin-top: 6px; }
